@@ -12,7 +12,7 @@ const Incident = (props: IncidentProps) => {
         <div key={id} className={`flex flex-col  items-center justify-center border gap-1 ${isSelected
                 ? 'bg-blue-100 border-blue-500'
                 : 'border-gray-200 hover:bg-gray-50'
-              } p-2 sm:p-3 md:p-4 rounded-lg text-center hover:bg-gray-50 transition duration-200 cursor-pointer`} onClick={onClick}>
+              } px-1 py-5 rounded-lg text-center hover:bg-gray-50 transition duration-200 cursor-pointer`} onClick={onClick}>
             <span className="text-2xl">{icon}</span>
             <span className="text-sm">{label}</span>
         </div>

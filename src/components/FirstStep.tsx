@@ -24,7 +24,9 @@ const FirstStep = () => {
     const selectedIncident = useSelector((state: RootState) => state.appStore.firstStep.incident);
     const description = useSelector((state: RootState) => state.appStore.firstStep.description);
     const dispatch = useDispatch();
-    
+
+    const isFormValid = selectedIncident.id !== '' && description.length > 0 && description.length < 500;
+
 
     return (
         <div className="w-full flex flex-col mb-6" >
@@ -37,9 +39,9 @@ const FirstStep = () => {
                         icon={incident.icon}
                         label={incident.label}
                         id={incident.id}
-                        onClick={() => { 
+                        onClick={() => {
                             dispatch(setIncident(incident));
-                            
+
                         }}
                         isSelected={selectedIncident.id === incident.id}
                     />
@@ -56,7 +58,7 @@ const FirstStep = () => {
             <textarea
                 name="description"
                 value={description}
-                onChange={  (value) => {
+                onChange={(value) => {
                     dispatch(setDescription(value.target.value));
                 }}
                 placeholder="Please describe the incident in detail..."
@@ -69,12 +71,13 @@ const FirstStep = () => {
             <div className="w-full mt-6">
                 <button
                     onClick={() => {
+                        if (!isFormValid) return;
                         dispatch(setCurrentStep(2));
-                     }}
+                    }}
                     // disabled={!!errors.incidentType || !formData.incidentType}
-                    className={`px-4 md:px-8 py-3 rounded-lg w-full flex items-center justify-center bg-gray-300 text-gray-600 cursor-not-allowed`}
+                    className={`px-4 md:px-8 py-3 rounded-lg w-full flex items-center justify-center  ${isFormValid ? 'cursor-pointer bg-blue-500 text-white hover:bg-blue-600 transition-colors' : 'cursor-not-allowed bg-gray-300 text-gray-600'}`}
                     // ${!errors.incidentType && formData.incidentType
-                    //   ? 'bg-blue-500 text-white hover:bg-blue-600 transition-colors'
+                    //   ? ''
                     //   : 'bg-gray-300 text-gray-600 cursor-not-allowed'
                     // }`
                     // }

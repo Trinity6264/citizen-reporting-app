@@ -1,35 +1,27 @@
-// import React from 'react'
 
 
+interface ProgressBarProps {
+    current: number;
+    total: number;
+  }
 
-// // Map Component (simple placeholder - in a real app you'd use a proper map library)
-// // const progressPercentage = Math.round((step / totalSteps) * 100);
-// const ProgressIndicator = () => (
-//   <div className="relative">
-//     <div className="bg-gray-200 rounded-lg p-4 flex flex-col items-center justify-center h-64">
-//       {/* <MapOff className="w-12 h-12 text-gray-400 mb-2" /> */}
-//       <p className="text-center text-gray-600">
-//         Map functionality placeholder. In a real app, this would be a Google Maps or Leaflet component.
-//       </p>
-//       <p className="text-center text-sm text-gray-500 mt-2">
-//         For Georgia locations only.
-//       </p>
-//       {
-//       // formData.coordinates && (
-//       //   <p className="text-center text-sm font-medium mt-2">
-//       //     Selected: 
-//       //     {/* {formData.coordinates.lat.toFixed(6)}, {formData.coordinates.lng.toFixed(6)} */}
-//       //   </p>
-//       // )
-//       }
-//     </div>
-//     <button
-//       className="absolute top-2 right-2 bg-white rounded-full p-1"
-//       // onClick={() => setShowMap(false)}
-//     >
-//       <X className="w-4 h-4" />
-//     </button>
-//   </div>
-// );
+const ProgressBar = ({ current, total }: ProgressBarProps) => {
+    const progress = total > 0 ? Math.min(100, (current / total) * 100) : 0;
 
-// export default ProgressIndicator
+    return (
+       <div className="w-full mb-4 flex flex-col">
+        <div className="flex justify-between mb-2">
+                <span className="text-sm text-gray-500 font-bold">Step {current} of {total}</span>
+                <span className="text-sm text-blue-600 font-bold">{progress.toFixed(0)}%</span>
+        </div>
+            <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div
+                    className="bg-blue-600 h-full rounded-full transition-all duration-500 ease-in-out"
+                    style={{ width: `${progress}%` }}
+                />
+            </div>
+       </div>
+    );
+};
+
+export default ProgressBar;
