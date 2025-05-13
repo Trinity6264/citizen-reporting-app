@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
+import appSlice from '../../features/app_slices'
 
 export const store = configureStore({
     reducer: {
-        // emergencyFundCalculator: emergencyFundCalculatorSlicer,
+        appStore: appSlice,
     },
 
 })

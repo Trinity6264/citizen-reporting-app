@@ -1,6 +1,7 @@
 'use client';
 
-import ThankYou from "@/components/ThankYou";
+import FirstStep from "@/components/FirstStep";
+// import ThankYou from "@/components/ThankYou";
 // import SecondStep from "@/components/SecondStep";
 // import ThirdStep from "@/components/ThirdStep";
 
@@ -19,14 +20,14 @@ export default function Home() {
           </div> */}
 
           {/* First step */}
-          {/* <FirstStep/> */}
+          <FirstStep/>
 
           {/* Second incident step */}
           {/* <SecondStep/> */}
           
           {/* Third incident step */}
           {/* <ThirdStep /> */}
-          <ThankYou />
+          {/* <ThankYou /> */}
         </div>
       </div>
 
