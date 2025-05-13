@@ -57,7 +57,7 @@ const FirstStep = () => {
                 <button
                     onClick={() => { }}
                     // disabled={!!errors.incidentType || !formData.incidentType}
-                    className={`px-8 py-3 rounded-lg w-full flex items-center justify-center bg-gray-300 text-gray-600 cursor-not-allowed`}
+                    className={`px-4 md:px-8 py-3 rounded-lg w-full flex items-center justify-center bg-gray-300 text-gray-600 cursor-not-allowed`}
                     // ${!errors.incidentType && formData.incidentType
                     //   ? 'bg-blue-500 text-white hover:bg-blue-600 transition-colors'
                     //   : 'bg-gray-300 text-gray-600 cursor-not-allowed'

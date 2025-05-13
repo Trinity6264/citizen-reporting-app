@@ -1,7 +1,7 @@
 'use client';
 
-import SecondStep from "@/components/SecondStep";
-// import ThirdStep from "@/components/ThirdStep";
+// import SecondStep from "@/components/SecondStep";
+import ThirdStep from "@/components/ThirdStep";
 
 // import FirstStep from "@/components/first_step";
 
@@ -20,10 +20,10 @@ export default function Home() {
           {/* <FirstStep/> */}
 
           {/* Second incident step */}
-          <SecondStep/>
+          {/* <SecondStep/> */}
           
           {/* Third incident step */}
-          {/* <ThirdStep /> */}
+          <ThirdStep />
         </div>
       </div>
 
