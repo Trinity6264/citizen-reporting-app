@@ -7,7 +7,7 @@ import SecondStep from "@/components/SecondStep";
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center sm:p-6 md:p-8 lg:p-12">
-      <div className="max-w-3xl mx-auto  sm:p-8 md:p-12  bg-white text-black px-4 rounded-xl shadow-md overflow-hidden transition-shadow">
+      <div className="max-w-3xl mx-auto sm:p-8 md:p-12 bg-white text-black px-4 rounded-xl shadow-md overflow-hidden transition-shadow">
         
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center justify-center mb-4">
