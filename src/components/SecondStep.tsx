@@ -6,36 +6,32 @@ const SecondStep = () => {
         <div className='w-full flex flex-col mb-6'>
             {/* Time stamp */}
             <div className='flex  justify-between items-center mb-4 gap-3'>
-                <div className='flex flex-col gap-2'>
+                <div className='flex flex-col gap-2 w-full flex-1'>
                     <label className="flex items-center text-sm text-gray-600 mb-1">
                         <Calendar className="w-4 h-4 mr-1" /> Date
                     </label>
                     <input
                         type="date"
                         name="date"
-                        //   value={formData.date}
-                        //   onChange={handleChange}
                         className="w-full p-3 border border-gray-300 rounded-lg"
                     />
                 </div>
-                <div className='flex flex-col gap-2'>
+                <div className='flex flex-col gap-2 w-full flex-1'>
                     <label className="flex items-center text-sm text-gray-600 mb-1">
                         <Clock className="w-4 h-4 mr-1" /> Time
                     </label>
                     <input
                         type="time"
                         name="time"
-                        //   value={formData.time}
-                        //   onChange={handleChange}
                         className="w-full p-3 border border-gray-300 rounded-lg"
                     />
                 </div>
-
             </div>
+
 
             {/* Location */}
             <div className='mt-3 mb-6'>
-                <div className="flex flex-col gap-2 justify-stretch mb-1">
+                <div className="flex flex-col  gap-2 justify-stretch mb-1">
                     <label className="flex items-center text-sm text-gray-600">
                         <MapPin className="w-4 h-4 mr-1" /> Location
                     </label>
@@ -66,50 +62,24 @@ const SecondStep = () => {
                 <div className='flex flex-col gap-2'>
                     <h3 className="flex items-center text-sm text-gray-600 mb-1">Add Media (Optional)</h3>
                     
-                    <div className='flex gap-3 justify-between items-center '>
-                        
-                        <div className="block border-2 border-gray-300 rounded-lg py-4 px-8 text-center cursor-pointer hover:bg-gray-50 transition-colors">
+                    <div className='flex gap-3 items-center w-full overflow-hidden'>
+                        <div className="flex-1 min-w-[80px] border-2 border-gray-300 rounded-lg py-2 px-2 sm:py-3 sm:px-3 md:py-4 md:px-4 text-center cursor-pointer hover:bg-gray-50 transition-colors">
                             <Camera className="w-8 h-8 mx-auto mb-2 text-gray-400" />
-                            <input
-                                type="file"
-                                className="hidden"
-                                accept="image"
-                                multiple
-                            // onChange={handleFileChange}
-                            />
-                            <span className="text-xs text-gray-500">
-                                Photo
-                            </span>
+                            <input type="file" className="hidden" accept="image" multiple />
+                            <span className="text-xs text-gray-500">Photo</span>
                         </div>
 
-                        <div className="block border-2 border-gray-300 rounded-lg py-4 px-8 text-center cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div className="flex-1 min-w-[80px] border-2 border-gray-300 rounded-lg py-2 px-2 sm:py-3 sm:px-3 md:py-4 md:px-4 text-center cursor-pointer hover:bg-gray-50 transition-colors">
                             <Video className="w-8 h-8 mx-auto mb-2 text-gray-400" />
-                            <input
-                                type="file"
-                                className="hidden"
-                                accept="video"
-                                multiple
-                            // onChange={handleFileChange}
-                            />
-                            <span className="text-xs text-gray-500">
-                                Video
-                            </span>
-                        </div>
-                        
-                        <div className="block border-2  border-gray-300 rounded-lg py-4 px-8 text-center cursor-pointer hover:bg-gray-50 transition-colors">
-                            <Mic className="w-8 h-8 mx-auto mb-2 text-gray-400" />
-                            <input
-                                type="file"
-                                className="hidden"
-                                accept="audio"
-                                multiple
-                            // onChange={handleFileChange}
-                            />
-                            <span className="text-xs text-gray-500">
-                                Voice
-                            </span>
+                            <input type="file" className="hidden" accept="video" multiple />
+                            <span className="text-xs text-gray-500">Video</span>
                         </div>
 
+                        <div className="flex-1 min-w-[80px] border-2 border-gray-300 rounded-lg py-2 px-2 sm:py-3 sm:px-3 md:py-4 md:px-4 text-center cursor-pointer hover:bg-gray-50 transition-colors">
+                            <Mic className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                            <input type="file" className="hidden" accept="audio" multiple />
+                            <span className="text-xs text-gray-500">Voice</span>
+                        </div>
                     </div>
 
                 </div>

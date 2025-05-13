@@ -1,13 +1,14 @@
 'use client';
 
 import SecondStep from "@/components/SecondStep";
+// import ThirdStep from "@/components/ThirdStep";
 
 // import FirstStep from "@/components/first_step";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center sm:p-6 md:p-8 lg:p-12">
-      <div className="max-w-3xl mx-auto sm:p-8 md:p-12 bg-white text-black px-4 rounded-xl shadow-md overflow-hidden transition-shadow">
+    <div className="flex min-h-screen flex-col mx-4 md:mx-8 items-center justify-center sm:p-6 md:p-8 lg:p-12">
+      <div className="w-full max-w-3xl mx-auto  sm:p-4 md:p-12 bg-white text-black px-4 rounded-xl shadow-md overflow-hidden transition-shadow">
         
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center justify-center mb-4">
@@ -20,6 +21,9 @@ export default function Home() {
 
           {/* Second incident step */}
           <SecondStep/>
+          
+          {/* Third incident step */}
+          {/* <ThirdStep /> */}
         </div>
       </div>
 
