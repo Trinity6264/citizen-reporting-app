@@ -4,7 +4,8 @@ import ThankYou from "@/components/ThankYou";
 // import SecondStep from "@/components/SecondStep";
 // import ThirdStep from "@/components/ThirdStep";
 
-// import FirstStep from "@/components/first_step";
+// import FirstStep from "@/components/FirstStep";
+// import ThirdStep from "@/components/ThirdStep";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
           {/* <SecondStep/> */}
           
           {/* Third incident step */}
+          {/* <ThirdStep /> */}
           <ThankYou />
         </div>
       </div>
