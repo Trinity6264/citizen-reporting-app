@@ -1,6 +1,9 @@
 import { IncidentInterface } from "@/interfaces/incidentInterface";
 import { ArrowRight } from "lucide-react";
 import Incident from "./Incident";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/app/store";
+import { setCurrentStep, setDescription, setIncident } from "../../features/app_slices";
 
 
 
@@ -18,6 +21,11 @@ const incidentTypes: Array<IncidentInterface> = [
 ];
 
 const FirstStep = () => {
+    const selectedIncident = useSelector((state: RootState) => state.appStore.firstStep.incident);
+    const description = useSelector((state: RootState) => state.appStore.firstStep.description);
+    const dispatch = useDispatch();
+    
+
     return (
         <div className="w-full flex flex-col mb-6" >
             <h3 className="text-lg font-medium mb-3">Type of Incident</h3>
@@ -29,8 +37,11 @@ const FirstStep = () => {
                         icon={incident.icon}
                         label={incident.label}
                         id={incident.id}
-                        onClick={() => { }}
-                        isSelected={false}
+                        onClick={() => { 
+                            dispatch(setIncident(incident));
+                            
+                        }}
+                        isSelected={selectedIncident.id === incident.id}
                     />
                 ))}
             </div>
@@ -38,14 +49,16 @@ const FirstStep = () => {
             <div className="flex justify-between items-center mb-2">
                 <h3 className="text-lg font-medium">Description</h3>
                 <span className="text-xs text-gray-500">
-                    {0}/500
+                    {description.length}/500
                 </span>
             </div>
 
             <textarea
                 name="description"
-                // value={''}
-                // onChange={  () => {}}
+                value={description}
+                onChange={  (value) => {
+                    dispatch(setDescription(value.target.value));
+                }}
                 placeholder="Please describe the incident in detail..."
                 className={`w-full p-3 border rounded-lg resize-none ${false ? 'border-red-500' : 'border-gray-300'
                     }`}
@@ -55,7 +68,9 @@ const FirstStep = () => {
 
             <div className="w-full mt-6">
                 <button
-                    onClick={() => { }}
+                    onClick={() => {
+                        dispatch(setCurrentStep(2));
+                     }}
                     // disabled={!!errors.incidentType || !formData.incidentType}
                     className={`px-4 md:px-8 py-3 rounded-lg w-full flex items-center justify-center bg-gray-300 text-gray-600 cursor-not-allowed`}
                     // ${!errors.incidentType && formData.incidentType
