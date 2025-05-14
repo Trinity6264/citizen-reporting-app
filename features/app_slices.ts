@@ -22,10 +22,21 @@ interface SecondStepInterface {
     location: string;
     files: FileMeta[];
 }
+interface ThirdStepInterface {
+    isAnonymouslyReporting: boolean;
+    contactInfo: {
+        name: string;
+        email: string;
+        phone: string;
+    };
+    receiveStatusUpdate: boolean;
+    canOfficialContactYou: boolean;
+}
 
 export interface AppState {
     firstStep: FirstStepInterface;
     secondStep: SecondStepInterface;
+    thirdStep: ThirdStepInterface;
     currentStep: number;
 }
 
@@ -44,12 +55,22 @@ const initialState: AppState = {
         location: '',
         files: [],
     },
+    thirdStep: {
+        isAnonymouslyReporting: false,
+        contactInfo: {
+            name: '',
+            email: '',
+            phone: ''
+        },
+        receiveStatusUpdate: false,
+        canOfficialContactYou: false
+    },
     currentStep: 1,
 
 }
 
 const appSlice = createSlice({
-    name: "app",
+    name: "appSlice",
     initialState: initialState,
     reducers: {
         // First step reducers
@@ -79,20 +100,31 @@ const appSlice = createSlice({
         setFiles: (state, action) => {
             state.secondStep.files = action.payload;
         },
-        // remove file
-        removeFiles: (state, action) => {
-            const fileNameToRemove: string = action.payload;
-            state.secondStep.files = state.secondStep.files.filter(
-                file => file.name !== fileNameToRemove
-            );
-            
-        },
 
+        // Third step reducers
+        setAnonymouslyReporting: (state, action) => {
+            state.thirdStep.isAnonymouslyReporting = action.payload;
+        },
+        setUsernameInfo: (state, action) => {
+            state.thirdStep.contactInfo.name = action.payload;
+        },
+        setEmailInfo: (state, action) => {
+            state.thirdStep.contactInfo.email = action.payload;
+        },
+        setPhoneInfo: (state, action) => {
+            state.thirdStep.contactInfo.phone = action.payload;
+        },
+        setReceiveStatusUpdate: (state, action) => {
+            state.thirdStep.receiveStatusUpdate = action.payload;
+        },
+        setCanOfficialContactYou: (state, action) => {
+            state.thirdStep.canOfficialContactYou = action.payload;
+        },
         // Reset the entire state
         resetState: () => initialState
     }
 });
 
-export const { setIncident, setDescription, resetFirstStep, setCurrentStep, setDate, setFiles, setLocation, setTime, resetState } = appSlice.actions;
+export const { setIncident, setDescription, resetFirstStep, setCurrentStep, setDate, setFiles, setLocation, setTime, setAnonymouslyReporting, setCanOfficialContactYou, setEmailInfo, setPhoneInfo, setReceiveStatusUpdate, setUsernameInfo, resetState } = appSlice.actions;
 
 export default appSlice.reducer;

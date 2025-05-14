@@ -74,17 +74,8 @@ const FirstStep = () => {
                         if (!isFormValid) return;
                         dispatch(setCurrentStep(2));
                     }}
-                    // disabled={!!errors.incidentType || !formData.incidentType}
                     className={`px-4 md:px-8 py-3 rounded-lg w-full flex items-center justify-center  ${isFormValid ? 'cursor-pointer bg-blue-500 text-white hover:bg-blue-600 transition-colors' : 'cursor-not-allowed bg-gray-300 text-gray-600'}`}
-                    // ${!errors.incidentType && formData.incidentType
-                    //   ? ''
-                    //   : 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                    // }`
-                    // }
-                    type="button"
-                >
-                    Next
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                    type="button">Next <ArrowRight className="ml-2 w-4 h-4" />
                 </button>
             </div>
 

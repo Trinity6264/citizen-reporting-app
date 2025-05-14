@@ -7,12 +7,7 @@ import SecondStep from "@/components/SecondStep";
 import ThirdStep from "@/components/ThirdStep";
 import ThankYou from "@/components/ThankYou";
 import ProgressBar from "@/components/ProgressIndicator";
-// import ThankYou from "@/components/ThankYou";
-// import SecondStep from "@/components/SecondStep";
-// import ThirdStep from "@/components/ThirdStep";
 
-// import FirstStep from "@/components/FirstStep";
-// import ThirdStep from "@/components/ThirdStep";
 
 export default function Home() {
   const currentStep = useSelector((state: RootState) => state.appStore.currentStep);
@@ -26,7 +21,7 @@ export default function Home() {
             <h2 className="text-2xl font-bold mb-2 text-black">Report an Incident</h2>
             <p className="text-gray-700 text-[1.2em] font-medium">Help Improve Your Community</p>
           </div>}
-            <ProgressBar current={currentStep} total={3}/>
+          {currentStep < 4 && <ProgressBar current={currentStep} total={3}/>}
 
           {/* First step */}
           {currentStep == 1 && <FirstStep />}

@@ -198,7 +198,7 @@ const SecondStep = () => {
                         if (!isFormValid) return;
                         dispatch(setCurrentStep(3));
                     }}
-                    className={`px-4 md:px-8 py-3  rounded-lg w-full flex font-semibold items-center justify-center${isFormValid ? 'cursor-pointer bg-blue-500 text-white hover:bg-blue-600 transition-colors' : 'cursor-not-allowed bg-gray-300 text-gray-600'}`}
+                    className={`px-4 md:px-8 py-3  rounded-lg w-full flex font-semibold items-center justify-center ${isFormValid ? 'cursor-pointer bg-blue-500 text-white hover:bg-blue-600 transition-colors' : 'cursor-not-allowed bg-gray-300 text-gray-600'}`}
                     type="button"
                 >
                     Next
