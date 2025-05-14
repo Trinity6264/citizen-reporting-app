@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FileType, setCurrentStep, setDate, setFiles, setLocation, setTime } from '../../features/app_slices';
 import { RootState } from '@/app/store';
 import Image from 'next/image';
+import { toast } from 'react-toastify';
 
 const SecondStep = () => {
     const dispatch = useDispatch();
@@ -16,8 +17,19 @@ const SecondStep = () => {
     const photoInputRef = useRef<HTMLInputElement>(null);
     const videoInputRef = useRef<HTMLInputElement>(null);
     const audioInputRef = useRef<HTMLInputElement>(null);
+    const maximumFilesLength = files.length === 3;
 
     const triggerFileInput = (ref: React.RefObject<HTMLInputElement | null>) => {
+        if (maximumFilesLength) {
+            // user react toast package
+            toast.error("You can only upload up to 3 files", {
+                autoClose: 3000,
+                hideProgressBar: false,
+                pauseOnHover: true,
+                draggable: true,
+            });
+            return;
+        }
         ref.current?.click();
     };
 
@@ -79,7 +91,7 @@ const SecondStep = () => {
                     <label className="flex items-center text-sm text-gray-600">
                         <MapPin className="w-4 h-4 mr-1" /> Location
                     </label>
-                 
+
                     <input
                         type="text"
                         name="location"
@@ -139,7 +151,7 @@ const SecondStep = () => {
                             <div key={idx} className="relative border rounded-2xl overflow-hidden flex flex-col shadow-sm hover:shadow-md transition group bg-white">
 
                                 <button
-                                    onClick={() => { 
+                                    onClick={() => {
                                         const newFiles = files.filter((_, index) => index !== idx);
                                         dispatch(setFiles(newFiles));
                                     }}
