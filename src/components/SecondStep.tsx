@@ -79,23 +79,12 @@ const SecondStep = () => {
                     <label className="flex items-center text-sm text-gray-600">
                         <MapPin className="w-4 h-4 mr-1" /> Location
                     </label>
-                    {/* {!showMap && (
-                        <button
-                            onClick={() => setShowMap(true)}
-                            className="text-blue-500 text-sm flex items-center"
-                            type="button"
-                        >
-                            <Map className="w-4 h-4 mr-1" />
-                            Show Map
-                        </button>
-                    )} */}
+                 
                     <input
                         type="text"
                         name="location"
                         value={location}
                         onChange={(e) => dispatch(setLocation(e.target.value))}
-
-                        // disabled={formData.useCurrentLocation}
                         placeholder="Street address or description of location in Georgia"
                         className={`w-full p-3 border rounded-lg ${false ? 'border-red-500' : 'border-gray-300'
                             }`}
@@ -149,7 +138,6 @@ const SecondStep = () => {
                         {files.map((file, idx) => (
                             <div key={idx} className="relative border rounded-2xl overflow-hidden flex flex-col shadow-sm hover:shadow-md transition group bg-white">
 
-                                {/* Remove Button */}
                                 <button
                                     onClick={() => { 
                                         const newFiles = files.filter((_, index) => index !== idx);
@@ -180,7 +168,7 @@ const SecondStep = () => {
                                 </div>
 
                                 {/* File Info */}
-                                <div className="p-3 text-center">
+                                <div className="p-2 text-center">
                                     <p className="text-sm font-medium truncate">{file.name}</p>
                                     <p className="text-xs text-gray-500">{(file.size / 1024).toFixed(1)} KB</p>
                                     <span className="mt-2 inline-block text-xs text-gray-400 capitalize">{file.fileType}</span>
