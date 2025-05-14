@@ -28,7 +28,6 @@ export default function Home() {
           </div>}
             <ProgressBar current={currentStep} total={3}/>
 
-
           {/* First step */}
           {currentStep == 1 && <FirstStep />}
 
