@@ -38,6 +38,17 @@ const SecondStep = () => {
         if (pickedFiles) {
             const fileArray = Array.from(pickedFiles);
 
+            // Check if the number of files exceeds the limit
+            if (files.length + fileArray.length > 3) {
+                toast.error("You can only upload up to 3 files", {
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
+                return;
+            }
+
             const serializedFiles = fileArray.map((file) => ({
                 name: file.name,
                 size: file.size,
